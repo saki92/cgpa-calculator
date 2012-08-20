@@ -13,6 +13,7 @@ function fina() {
 		foreach($_GET as $gsub=>$grade) {
 		$grade=strtolower($grade);
 		if ($sub == $gsub) {
+		if ($grade == 'u') { break; }
 		if(in_array($grade,$gra)){
 		foreach($grlst as $key=>$value) {
 		if($grade == $key) {
@@ -23,6 +24,7 @@ function fina() {
 			}}}
 		else{ echo "<body bgcolor='#E0FFFF'><h1><font color='red'>Go back and enter a proper grade</font></h1>";
 			exit;}}}}
+			
 	$f = $i/$c;
 	$gpa = round($f,2);
 	
