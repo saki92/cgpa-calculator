@@ -27,8 +27,9 @@ function fina() {
 			
 	$f = $i/$c;
 	$gpa = round($f,2);
-	
-	echo "<body bgcolor='#E0FFFF'><center><h1>$gpa</h1></body></html>";
+//	print_r ($crlst);
+	echo "<body bgcolor='#E0FFFF'><center><h1>$gpa</h1>
+<div class='bottom' style='font-size:1em; font-family:Helvetica; position:absolute; width:100%; bottom:40px'><hr>Developed by <a href='http://facebook.com/sakthi.velumani' target='_blank'><img src='fb.jpg' width=20 height=20 /></a></div></body></html>";
 }
 fina();
 ?>

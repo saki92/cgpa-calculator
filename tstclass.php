@@ -3,7 +3,7 @@
 class Gpa {
 public $sem;
 public $dep;
-public $creditlist;
+public $creditlist = array();
 public $gradelist;
 public $grade = array('s'=>10,'a'=>9,'b'=>8,'c'=>7,'d'=>6,'e'=>5);
 public $list = array(array('sem'=>1,'dep'=>'ece','sub'=>array('english1'=>4,'maths1'=>4,'physics1'=>3,'chemistry1'=>3,'FOC'=>3,'EG'=>5,'Comp-lab'=>2,'Eng-prac-lab'=>2)),
@@ -81,7 +81,9 @@ $seri = serialize($this->creditlist);
 echo "<pre></table>
 
 <input type='hidden' name='crlst' value='{$seri}'>
-<input type='submit' value='Go'/></form></body></html><pre>
+<input type='submit' value='Go'/></form>
+<div class='bottom' style='font-size:1em; font-family:Helvetica; position:relative; bottom:5px'><hr>Developed by <a href='http://facebook.com/sakthi.velumani' target='_blank'><img src='fb.jpg' width=20 height=20 /></a></div>
+</body></html><pre>
 "; }}}
 
 public function calc() {
@@ -107,18 +109,22 @@ public function cgpa_table($sem, $dep) {
 			</tr><form action='calcu.php' method='get'>
 
 ";
-		$this->creditlist = $group['sub'];
+//		$this->creditlist = $group['sub'];
+		$this->creditlist = array_merge($this->creditlist, $group['sub']);
 		foreach($group['sub'] as $subs=>$credit) {
 			echo "<tr><td>{$subs}</td>
 				<td>{$credit}</td>
 				<td><input type='text' name='{$subs}' maxlength='1'>";}
-$seri = serialize($this->creditlist);
+//$seri = serialize($this->creditlist);
 echo "</td></tr>";
 }}
+$seri = serialize($this->creditlist);
 echo "<pre></table>
 
 <input type='hidden' name='crlst' value='{$seri}'>
-<input type='submit' value='Go'/></form></body></html><pre>
+<input type='submit' value='Go'/></form>
+<div class='bottom' style='font-size:1em; font-family:Helvetica; position:relative; bottom:5px'><hr>Developed by <a href='http://facebook.com/sakthi.velumani' target='_blank'><img src='fb.jpg' width=20 height=20 /></a></div>
+</body></html><pre>
 "; }
 }
 
