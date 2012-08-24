@@ -88,6 +88,38 @@ public function calc() {
 	$this->gradelist = array_combine($this->creditlist, $_GET);
 	print_r($this->gradelist);
 }
+
+
+public function cgpa_table($sem, $dep) {
+	echo "
+<html><title>Table</title>
+	<body bgcolor='#E0FFFF'><center>
+	<h2>Enter the grades obtained</h2>";
+	foreach($this->list as $group) {
+		if ($sem >= $group['sem'] && $dep == $group['dep']) {
+		echo "
+
+
+		<table border='1' cellpadding='4'>
+		<tr bgcolor='#E0FFFF'><td><b />Subject</td>
+		<td><b />Credit</td>
+		<td><b />Grade</td>
+			</tr><form action='calcu.php' method='get'>
+
+";
+		$this->creditlist = $group['sub'];
+		foreach($group['sub'] as $subs=>$credit) {
+			echo "<tr><td>{$subs}</td>
+				<td>{$credit}</td>
+				<td><input type='text' name='{$subs}' maxlength='1'>";}
+$seri = serialize($this->creditlist);
+echo "</td></tr>";
+}}
+echo "<pre></table>
+
+<input type='hidden' name='crlst' value='{$seri}'>
+<input type='submit' value='Go'/></form></body></html><pre>
+"; }
 }
 
 ?>
